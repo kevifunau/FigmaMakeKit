@@ -1,8 +1,21 @@
 {
   "name": "@game-ui/kit",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "type": "module",
+  "sideEffects": false,
+  "main": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./styles": "./src/styles/index.css",
+    "./tailwind": "./src/styles/tailwind.css"
+  },
+  "files": [
+    "src",
+    "guidelines",
+    "ATTRIBUTIONS.md",
+    "BENCHMARK.md"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -13,6 +26,10 @@
     "react-dom": "^18.3.0",
     "tailwindcss": "^4.0.0",
     "tw-animate-css": "^1.0.0"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.3.0",
