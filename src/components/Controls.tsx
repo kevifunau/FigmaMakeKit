@@ -26,8 +26,8 @@ export function Toggle({
       } ${disabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer"} ${className}`}
     >
       <span
-        className={`w-5 h-5 rounded-full bg-white shadow absolute top-0.5 transition-transform duration-[200ms] ${
-          checked ? "translate-x-[22px]" : "translate-x-0.5"
+        className={`w-5 h-5 rounded-full bg-white shadow absolute top-0.5 left-0.5 transition-transform duration-[200ms] ${
+          checked ? "translate-x-6" : "translate-x-0"
         }`}
       />
     </button>
