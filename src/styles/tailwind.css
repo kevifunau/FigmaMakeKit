@@ -90,3 +90,135 @@
     --duration-fast: 120ms;
     --duration-medium: 200ms;
 }
+
+/* Themed scrollbar — scoped to .ds-root so it doesn't leak */
+.ds-root ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.ds-root ::-webkit-scrollbar-track {
+  background: transparent;
+}
+.ds-root ::-webkit-scrollbar-thumb {
+  background: var(--color-border-strong);
+  border-radius: 4px;
+}
+.ds-root ::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-secondary);
+}
+
+/* Firefox */
+.ds-root {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border-strong) transparent;
+}
+
+/* Auto-hide scrollbar variant */
+.ds-scrollbar-auto::-webkit-scrollbar-thumb {
+  background: transparent;
+  transition: background var(--duration-medium);
+}
+.ds-scrollbar-auto:hover::-webkit-scrollbar-thumb {
+  background: var(--color-border-strong);
+}
+
+/* ============================================================================
+   THEME: Light
+   Add class="theme-light" to .ds-root to switch to light palette.
+   All Tailwind utility classes (bg-bg, text-text-primary, etc.) automatically
+   pick up the overridden CSS custom properties.
+   ============================================================================ */
+.theme-light {
+  --color-primary: #16A34A;
+  --color-primary-hover: #15803D;
+  --color-primary-press: #166534;
+  --color-primary-soft: rgba(22,163,74,0.12);
+
+  --color-secondary: #2563EB;
+  --color-secondary-hover: #1D4ED8;
+  --color-secondary-press: #1E40AF;
+  --color-secondary-soft: rgba(37,99,235,0.12);
+
+  --color-tertiary: #9333EA;
+  --color-tertiary-hover: #7E22CE;
+  --color-tertiary-press: #6B21A8;
+  --color-tertiary-soft: rgba(147,51,234,0.12);
+
+  --color-warning: #D97706;
+  --color-warning-hover: #B45309;
+  --color-warning-soft: rgba(217,119,6,0.12);
+
+  --color-danger: #DC2626;
+  --color-danger-hover: #B91C1C;
+  --color-danger-press: #991B1B;
+  --color-danger-soft: rgba(220,38,38,0.12);
+
+  --color-text-primary: #111827;
+  --color-text-secondary: #4B5563;
+  --color-text-disabled: #9CA3AF;
+  --color-text-on-accent: #FFFFFF;
+
+  --color-bg: #FFFFFF;
+  --color-surface: #F9FAFB;
+  --color-surface-elev: #F3F4F6;
+  --color-surface-hover: #E5E7EB;
+  --color-border: #D1D5DB;
+  --color-border-strong: #9CA3AF;
+  --color-overlay: rgba(0,0,0,0.4);
+}
+
+/* ============================================================================
+   MOBILE RESPONSIVE
+   Add class="mobile" to .ds-root to flip all components to touch-friendly sizes.
+   Mirrors the parent's Mobile.uss pattern.
+   ============================================================================ */
+.mobile .ds-btn,
+.mobile [data-bui-button] {
+  min-height: 48px !important;
+  font-size: 16px !important;
+}
+
+.mobile [data-bui-input],
+.mobile [data-bui-search],
+.mobile [data-bui-textarea],
+.mobile [data-bui-dropdown] {
+  min-height: 48px !important;
+  font-size: 16px !important;
+}
+
+.mobile [data-bui-tabs] button {
+  min-height: 48px !important;
+}
+
+.mobile [data-bui-slider] {
+  min-height: 48px !important;
+}
+
+.mobile [data-bui-toggle] {
+  width: 52px !important;
+  height: 28px !important;
+}
+
+.mobile [data-bui-checkbox],
+.mobile [data-bui-radio] {
+  width: 24px !important;
+  height: 24px !important;
+}
+
+.mobile [data-bui-modal] {
+  margin: 16px !important;
+  max-width: none !important;
+}
+
+.mobile [data-bui-drawer] {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+.mobile [data-bui-bottomnav] {
+  height: 64px !important;
+}
+
+.mobile [data-bui-bottomnav] button {
+  min-height: 48px !important;
+}

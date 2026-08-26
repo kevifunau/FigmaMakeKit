@@ -19,16 +19,26 @@ export { Button } from './components/Button';
 
 export { Input } from './components/Input';
 
+export { Textarea } from './components/Textarea';
+
+export { Dropdown } from './components/Dropdown';
+
 export { Badge, Tag, Chip } from './components/Badge';
 
 export { Icon } from './components/Icon';
 
 export { Modal, Toast } from './components/Modal';
 
+export { Dialog } from './components/Dialog';
+
+export { Drawer } from './components/Drawer';
+
 export { Tabs } from './components/Tabs';
 export type { TabsProps } from './components/Tabs';
 
 export { Toggle, Checkbox, Radio } from './components/Controls';
+
+export { Slider, Range } from './components/Slider';
 
 export { ProgressBar, Spinner, Skeleton } from './components/Progress';
 export type { ProgressBarProps, SpinnerProps, SkeletonProps } from './components/Progress';
@@ -37,3 +47,5 @@ export { SideNav, BottomNav } from './components/Navigation';
 export type { SideNavItem, BottomNavItem } from './components/Navigation';
 
 export { Avatar } from './components/Avatar';
+
+export { Pagination } from './components/Pagination';
