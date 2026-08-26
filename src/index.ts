@@ -14,8 +14,10 @@ export type { Skill, SkillBarProps } from './components/SkillBar';
 export { DialogueBox } from './components/DialogueBox';
 export type { DialogueBoxProps } from './components/DialogueBox';
 
+export { Meter } from './components/Meter';
+
 // Core UI components
-export { Button } from './components/Button';
+export { Button, BackButton } from './components/Button';
 
 export { Input } from './components/Input';
 
@@ -23,7 +25,7 @@ export { Textarea } from './components/Textarea';
 
 export { Dropdown } from './components/Dropdown';
 
-export { Badge, Tag, Chip } from './components/Badge';
+export { Badge, Tag, Chip, NotificationBadge } from './components/Badge';
 
 export { Icon } from './components/Icon';
 
@@ -33,8 +35,16 @@ export { Dialog } from './components/Dialog';
 
 export { Drawer } from './components/Drawer';
 
-export { Tabs } from './components/Tabs';
-export type { TabsProps } from './components/Tabs';
+export { BottomSheet } from './components/BottomSheet';
+
+export { EmptyState } from './components/EmptyState';
+
+export { Tooltip } from './components/Tooltip';
+
+export { Card, InfoRow } from './components/Card';
+
+export { Tabs, ViewToggle } from './components/Tabs';
+export type { TabsProps, ViewToggleProps } from './components/Tabs';
 
 export { Toggle, Checkbox, Radio } from './components/Controls';
 
@@ -43,9 +53,17 @@ export { Slider, Range } from './components/Slider';
 export { ProgressBar, Spinner, Skeleton } from './components/Progress';
 export type { ProgressBarProps, SpinnerProps, SkeletonProps } from './components/Progress';
 
-export { SideNav, BottomNav } from './components/Navigation';
+export { SideNav, BottomNav, SideNavFull, Profile } from './components/Navigation';
 export type { SideNavItem, BottomNavItem } from './components/Navigation';
 
 export { Avatar } from './components/Avatar';
 
 export { Pagination } from './components/Pagination';
+
+export { Stepper } from './components/Stepper';
+
+export { SectionHeader } from './components/SectionHeader';
+
+export { Row, Col, Spacer } from './components/Layout';
+
+export { Draggable, DropZone } from './components/DragDrop';

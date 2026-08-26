@@ -6,7 +6,7 @@ interface Tab {
   content: ReactNode;
 }
 
-interface TabsProps {
+export interface TabsProps {
   tabs: Tab[];
   defaultTab?: string;
   className?: string;
@@ -36,6 +36,65 @@ export function Tabs({ tabs, defaultTab, className = "" }: TabsProps) {
         ))}
       </div>
       <div className="pt-4">{active?.content}</div>
+    </div>
+  );
+}
+
+// ─── ViewToggle ─────────────────────────────────────────────────────────────
+
+export interface ViewToggleProps {
+  view: "grid" | "list";
+  onChange: (view: "grid" | "list") => void;
+  className?: string;
+}
+
+const GridIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+    <rect x="1" y="1" width="6" height="6" rx="1" fill="currentColor" />
+    <rect x="9" y="1" width="6" height="6" rx="1" fill="currentColor" />
+    <rect x="1" y="9" width="6" height="6" rx="1" fill="currentColor" />
+    <rect x="9" y="9" width="6" height="6" rx="1" fill="currentColor" />
+  </svg>
+);
+
+const ListIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+    <rect x="1" y="3" width="14" height="2" rx="1" fill="currentColor" />
+    <rect x="1" y="7" width="14" height="2" rx="1" fill="currentColor" />
+    <rect x="1" y="11" width="14" height="2" rx="1" fill="currentColor" />
+  </svg>
+);
+
+export function ViewToggle({ view, onChange, className = "" }: ViewToggleProps) {
+  return (
+    <div
+      data-bui-view-toggle="true"
+      className={`inline-flex rounded-md bg-surface-elev border border-border p-0.5 ${className}`}
+    >
+      <button
+        type="button"
+        onClick={() => onChange("grid")}
+        className={`px-3 py-1.5 rounded-sm text-body-2 font-bold transition-colors ${
+          view === "grid"
+            ? "bg-surface text-text-primary"
+            : "text-text-secondary hover:text-text-primary"
+        }`}
+        aria-label="Grid view"
+      >
+        <GridIcon />
+      </button>
+      <button
+        type="button"
+        onClick={() => onChange("list")}
+        className={`px-3 py-1.5 rounded-sm text-body-2 font-bold transition-colors ${
+          view === "list"
+            ? "bg-surface text-text-primary"
+            : "text-text-secondary hover:text-text-primary"
+        }`}
+        aria-label="List view"
+      >
+        <ListIcon />
+      </button>
     </div>
   );
 }

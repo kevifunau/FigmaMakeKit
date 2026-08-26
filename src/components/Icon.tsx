@@ -61,6 +61,36 @@ const ICONS: Record<string, JSX.Element> = {
   close: (
     <path d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z" />
   ),
+  'arrow-up': (
+    <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
+  ),
+  'arrow-down': (
+    <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z" />
+  ),
+  'arrow-left': (
+    <path d="M15.41 7.41L10.83 12l4.58 4.59L14 18l-6-6 6-6z" />
+  ),
+  'arrow-right': (
+    <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z" />
+  ),
+  check: (
+    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+  ),
+  plus: (
+    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+  ),
+  minus: (
+    <path d="M19 13H5v-2h14v2z" />
+  ),
+  settings: (
+    <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 00.12-.61l-1.92-3.32a.49.49 0 00-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 00-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96a.49.49 0 00-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58a.49.49 0 00-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6A3.6 3.6 0 1115.6 12 3.61 3.61 0 0112 15.6z" />
+  ),
+  search: (
+    <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+  ),
+  menu: (
+    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+  ),
 };
 
 const sizeMap = {
@@ -68,6 +98,8 @@ const sizeMap = {
   sm: 16,
   md: 20,
   lg: 24,
+  xl: 32,
+  xxl: 48,
 } as const;
 
 type IconSize = keyof typeof sizeMap;
@@ -75,10 +107,11 @@ type IconSize = keyof typeof sizeMap;
 interface IconProps {
   name: string;
   size?: IconSize;
+  tint?: string;
   className?: string;
 }
 
-export function Icon({ name, size = 'md', className }: IconProps) {
+export function Icon({ name, size = 'md', tint, className }: IconProps) {
   const px = sizeMap[size];
   const icon = ICONS[name];
 
@@ -94,6 +127,7 @@ export function Icon({ name, size = 'md', className }: IconProps) {
       fill="currentColor"
       data-bui-icon={name}
       className={className}
+      style={tint ? { color: tint } : undefined}
     >
       {icon}
     </svg>

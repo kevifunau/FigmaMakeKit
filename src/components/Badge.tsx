@@ -84,3 +84,26 @@ export function Chip({ variant, icon, children }: ChipProps) {
     </span>
   );
 }
+
+// --- NotificationBadge (icon with notification dot) ---
+
+interface NotificationBadgeProps {
+  count: number;
+  className?: string;
+  children?: ReactNode;
+}
+
+export function NotificationBadge({ count, className, children }: NotificationBadgeProps) {
+  return (
+    <span className={`relative inline-flex items-center justify-center w-10 h-10 ${className ?? ''}`} data-bui-notif="">
+      {children && <span className="w-6 h-6 text-text-primary">{children}</span>}
+      {count > 0 && (
+        <span className="absolute top-0.5 right-0.5 min-w-4.5 h-4.5 px-1 rounded-full bg-danger border-2 border-bg flex items-center justify-center">
+          <span className="text-[10px] font-bold text-text-primary">
+            {count > 99 ? '99+' : count}
+          </span>
+        </span>
+      )}
+    </span>
+  );
+}

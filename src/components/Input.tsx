@@ -50,6 +50,19 @@ export function Input({
           disabled={disabled}
           className="flex-1 bg-transparent text-text-primary text-body-1 outline-none placeholder:text-text-disabled"
         />
+        {value && value.length > 0 && (
+          <button
+            type="button"
+            onClick={() => onChange?.('')}
+            className="w-4 h-4 ml-2 flex-shrink-0 text-text-secondary hover:text-text-primary cursor-pointer"
+            aria-label="Clear search"
+          >
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+              <line x1="2" y1="2" x2="10" y2="10" />
+              <line x1="10" y1="2" x2="2" y2="10" />
+            </svg>
+          </button>
+        )}
       </div>
     );
   }

@@ -4,6 +4,8 @@ interface ToggleProps {
   checked: boolean;
   onChange: (checked: boolean) => void;
   disabled?: boolean;
+  /** Optional label rendered beside the toggle */
+  label?: string;
   className?: string;
 }
 
@@ -11,9 +13,10 @@ export function Toggle({
   checked,
   onChange,
   disabled = false,
+  label,
   className = "",
 }: ToggleProps) {
-  return (
+  const toggle = (
     <button
       type="button"
       data-bui-toggle="true"
@@ -23,7 +26,7 @@ export function Toggle({
       onClick={() => onChange(!checked)}
       className={`w-12 h-6 rounded-full transition-colors duration-[200ms] relative ${
         checked ? "bg-primary" : "bg-surface-elev"
-      } ${disabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer"} ${className}`}
+      } ${disabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}`}
     >
       <span
         className={`w-5 h-5 rounded-full bg-white shadow absolute top-0.5 left-0.5 transition-transform duration-[200ms] ${
@@ -31,6 +34,15 @@ export function Toggle({
         }`}
       />
     </button>
+  );
+
+  if (!label) return <span className={className}>{toggle}</span>;
+
+  return (
+    <div className={`flex flex-row gap-2 items-center ${className}`}>
+      <span className="text-body-1 text-text-primary">{label}</span>
+      {toggle}
+    </div>
   );
 }
 
@@ -62,7 +74,7 @@ export function Checkbox({
         className={`w-5 h-5 rounded-sm border-2 flex items-center justify-center transition-colors ${
           checked
             ? "bg-primary border-primary"
-            : "bg-bg border-border"
+            : "bg-bg border-border hover:border-border-strong"
         }`}
       >
         {checked && (
@@ -111,7 +123,7 @@ export function Radio({
         name={name}
         onClick={onChange}
         className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-colors ${
-          selected ? "border-primary" : "border-border"
+          selected ? "border-primary" : "border-border hover:border-border-strong"
         }`}
       >
         {selected && <span className="w-2.5 h-2.5 rounded-full bg-primary" />}
