@@ -72,7 +72,7 @@ export function Spinner(props: SpinnerProps) {
 /* ── Skeleton ─────────────────────────────────────────────────────── */
 
 export interface SkeletonProps {
-  variant?: 'text' | 'circle' | 'rect';
+  variant?: 'text' | 'circle' | 'rect' | 'card';
   width?: number | string;
   height?: number | string;
   className?: string;
@@ -82,6 +82,7 @@ const SHAPE_CLASS: Record<NonNullable<SkeletonProps['variant']>, string> = {
   text: 'h-3 rounded-sm',
   circle: 'rounded-full',
   rect: 'rounded-md',
+  card: '',
 };
 
 function resolveSize(value: number | string | undefined): string | undefined {
@@ -91,6 +92,22 @@ function resolveSize(value: number | string | undefined): string | undefined {
 
 export function Skeleton(props: SkeletonProps) {
   const { variant = 'text', width, height, className } = props;
+
+  if (variant === 'card') {
+    return (
+      <div
+        data-bui-skeleton=""
+        className={`w-50 h-55 bg-surface rounded-lg overflow-hidden border border-border ${className ?? ''}`}
+      >
+        <div className="h-32 bg-surface-elev animate-pulse" />
+        <div className="p-3 space-y-2">
+          <div className="h-3 w-3/4 bg-surface-elev rounded-sm animate-pulse" />
+          <div className="h-3 w-1/2 bg-surface-elev rounded-sm animate-pulse" />
+          <div className="h-3 w-2/3 bg-surface-elev rounded-sm animate-pulse" />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div

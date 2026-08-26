@@ -222,3 +222,31 @@
 .mobile [data-bui-bottomnav] button {
   min-height: 48px !important;
 }
+
+/* ============================================================================
+   TYPOGRAPHY: Font weight utility classes
+   Mirrors the parent's .ds-weight-100…900 system.
+   Use: <span class="ds-weight-700">SemiBold text</span>
+   ============================================================================ */
+.ds-weight-100 { font-weight: 100; }
+.ds-weight-200 { font-weight: 200; }
+.ds-weight-300 { font-weight: 300; }
+.ds-weight-400 { font-weight: 400; }
+.ds-weight-500 { font-weight: 500; }
+.ds-weight-600 { font-weight: 600; }
+.ds-weight-700 { font-weight: 700; }
+.ds-weight-800 { font-weight: 800; }
+.ds-weight-900 { font-weight: 900; }
+
+/* Text color modifier classes — mirrors parent's .ds-text-* system */
+.ds-text-primary   { color: var(--color-text-primary); }
+.ds-text-secondary { color: var(--color-text-secondary); }
+.ds-text-disabled  { color: var(--color-text-disabled); }
+.ds-text-success   { color: var(--color-primary); }
+.ds-text-warning   { color: var(--color-warning); }
+.ds-text-danger    { color: var(--color-danger); }
+.ds-text-info      { color: var(--color-secondary); }
+
+/* Text wrap control */
+.ds-nowrap   { white-space: nowrap; }
+.ds-truncate { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }

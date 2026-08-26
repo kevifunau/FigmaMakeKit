@@ -67,3 +67,8 @@ export { SectionHeader } from './components/SectionHeader';
 export { Row, Col, Spacer } from './components/Layout';
 
 export { Draggable, DropZone } from './components/DragDrop';
+
+// Game card system
+export { AnimalCard } from './components/AnimalCard';
+export { AnimalDetail } from './components/AnimalDetail';
+export { Carousel } from './components/Carousel';
